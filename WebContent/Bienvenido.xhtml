@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</h:head>
+<h:body>
+
+<ui:composition template="/template/common/commonLayout.xhtml">
+			<ui:define name="content">
+
+	<h:form style="float: right;" >
+		<p:commandButton icon ="ui-icon-home" value="Cerrar sesión" action="logout" />
+	</h:form>
+	
+	<p:tooltip />
+
+<p:separator />
+
+
+<p:panel style="margin-top: 40px;" id="panel" header="Perfil">
+<h:form>
+ <p:messages for="bienvenido" severity="info" id="messages" showDetail="true" autoUpdate="true" closable="true" />
+ 
+	</h:form>
+
+<h3>
+Bienvenido #{serv.nombre}</h3>
+
+
+<h4>
+#{serv.email}</h4>
+
+<h4>
+Hora Ingreso:  #{serv.fecha}</h4>
+</p:panel>
+<p:separator />
+
+
+<p:panel id="horario" header="Horario">
+<h:form>
+<p:messages for="msghor" severity="warn, fatal, info" showDetail="true" autoUpdate="true" closable="true" />
+<h:panelGrid columns="4">
+
+	 <p:outputLabel value="Semana" for="semana" />
+	         <p:selectOneMenu id="semana" value="#{horario.semana}">
+            <f:selectItem itemLabel="Semana 1" itemValue="1" />
+            <f:selectItem itemLabel="Semana 2" itemValue="2" />
+            <f:selectItem itemLabel="Semana 3" itemValue="3" />
+            <f:selectItem itemLabel="Semana 4" itemValue="4" />
+        </p:selectOneMenu>
+	 <h:outputText value="" />
+	 <h:outputText value="" />
+	 
+	<h:outputText value="" />
+	 <h:outputText value="" />
+     <h:outputText value="Hora Inicio " />
+     <h:outputText value="Hora Fin " />
+     
+     	 <h:outputText value="Lunes " />
+     <p:selectBooleanCheckbox value="#{horario.lunes}" />
+     <p:calendar id="lunesInicio" pattern="HH:mm" timeOnly="true"  value="#{horario.lunesI}" />
+     <p:calendar id="lunesFin" pattern="HH:mm" timeOnly="true"  value="#{horario.lunesF}" />
+     
+          	 <h:outputText value="Martes " />
+     <p:selectBooleanCheckbox value="#{horario.martes}" />
+     <p:calendar id="martesInicio" pattern="HH:mm" timeOnly="true"  value="#{horario.martesI}" />
+     <p:calendar id="martesFin" pattern="HH:mm" timeOnly="true"  value="#{horario.martesF}" />
+     
+          	 <h:outputText value="Miercoles " />
+     <p:selectBooleanCheckbox value="#{horario.miercoles}" />
+     <p:calendar id="miercolesInicio" pattern="HH:mm" timeOnly="true"  value="#{horario.miercolesI}" />
+     <p:calendar id="miercolesFin" pattern="HH:mm" timeOnly="true"  value="#{horario.miercolesF}" />
+     
+          	 <h:outputText value="Jueves " />
+     <p:selectBooleanCheckbox value="#{horario.jueves}" />
+     <p:calendar id="juevesInicio" pattern="HH:mm" timeOnly="true"  value="#{horario.juevesI}" />
+     <p:calendar id="juevesFin" pattern="HH:mm" timeOnly="true"  value="#{horario.juevesF}" />
+     
+          	 <h:outputText value="Viernes " />
+     <p:selectBooleanCheckbox value="#{horario.viernes}" />
+     <p:calendar id="viernesInicio" pattern="HH:mm" timeOnly="true" value="#{horario.viernesI}" />
+     <p:calendar id="viernesFin" pattern="HH:mm" timeOnly="true" value="#{horario.viernesF}" />
+     
+     	 <h:outputText value="" />
+     	 	 <h:outputText value="" />
+     	 	 	 <h:outputText value="" />
+     			<p:commandButton style="margin-left:90px;" value="Registrar"
+				action="#{horario.doGet}" icon="ui-icon-disk"/>
+     
+
+</h:panelGrid>
+
+</h:form>
+
+</p:panel>
+
+<h:form id="msgss">
+    <p:growl id="msgs" showDetail="true" />
+</h:form>
+
+
+		</ui:define>
+</ui:composition>
+
+</h:body>
+</html>

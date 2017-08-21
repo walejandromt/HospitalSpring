@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+xmlns:p="http://primefaces.org/ui"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</h:head>
+
+<h:body>
+
+<ui:composition template="/template/common/commonLayout.xhtml">
+			<ui:define name="content">
+	
+	<p:panel id="panel" header="Registrar nuevo usuario">
+	<p:separator />
+<p:messages id="messages" showDetail="true" autoUpdate="true"
+			closable="true" />
+	<h:form>
+		
+
+		<h:panelGrid columns="3">
+		
+			<h:outputText value="Nombre: " />
+			<p:inputText value="#{regis.nombre}" />
+			<p:messages severity="warn" autoUpdate="true" />
+
+      			
+				
+				
+			<h:outputText value="Edad: " />
+			<p:inputNumber value="#{regis.edad}" />
+			<h:outputText value="" />
+			
+			<h:outputText value="Especialidad: " />
+			<p:inputText value="#{regis.especialidad}" />
+			<h:outputText value="" />
+
+			<h:outputText value="Sexo: " />
+			<p:selectOneRadio value="#{regis.sexo}">
+				<f:selectItem itemValue="Masculino" itemLabel="Masculino" />
+				<f:selectItem itemValue="Femenino" itemLabel="Femenino" />
+			</p:selectOneRadio>
+			<h:outputText value="" />
+
+
+
+			<h:outputText value="RFC: " />
+			<p:inputText value="#{regis.rfc}" />
+			<h:outputText value="" />
+
+			<h:outputText value="Email: " />
+			<p:inputText value="#{regis.email}" />
+			<p:messages severity="warn" autoUpdate="true" />
+			
+			<h:outputText value="Password: " />
+			<p:password value="#{regis.password}" feedback="true"/>
+		<p:messages severity="warn" autoUpdate="true" />
+
+			<h:outputText value="" />
+			<p:commandButton style="margin-left:90px;" value="Registrar"
+				action="#{regis.doGet}" icon="ui-icon-disk"/>
+		</h:panelGrid>
+	</h:form>
+	
+	</p:panel>
+	<p:separator />
+
+
+
+	<h:form>
+		<p:commandButton icon="ui-icon-arrowreturnthick-1-w" value="Regresar" action="login" />
+	</h:form>
+
+
+		</ui:define>
+</ui:composition>
+
+</h:body>
+</html>
